@@ -8,14 +8,14 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
-
         test1();
         test2();
         test3();
         test4();
         test5();
         test6();
+        test7();
+        test8();
     }
 
 
@@ -112,5 +112,26 @@ public class Main {
 
         System.out.println("------------------");
     }
+
+    public static void test7(){
+        System.out.println("Test 7. ");
+
+        System.out.println("------------------");
+    }
+
+    public static void test8(){
+        System.out.println("Test 8. ");
+
+        System.out.println("------------------");
+    }
+
+    public static void doOper7(List<? extends Number> list){
+
+    }
+
+    public static <T extends Number> void doOper8(List<T> list){
+
+    }
+
 
 }
