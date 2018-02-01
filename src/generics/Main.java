@@ -1,8 +1,7 @@
-import org.omg.CORBA.OBJECT_NOT_EXIST;
+package generics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -35,7 +34,7 @@ public class Main {
 
     public static void test2() {
         System.out.println("Test 2. ");
-        MyHolder<? extends Number> var = new MyHolder<>();
+        MyHolder<? extends Number> var = new MyHolder<>(1);
 //        var.setElement(1);
         Number number = var.getElement();
         System.out.println("var = " + var);
@@ -110,7 +109,7 @@ public class Main {
 
         Object number = var.getElement();//disadvantage
 
-        System.out.println("------------------");
+        System.out.println("------------------" + "${Thread.currentThread().name}");
     }
 
     public static void test7(){

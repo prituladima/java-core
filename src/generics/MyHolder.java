@@ -1,6 +1,5 @@
-/**
- * Created by prituladima on 1/31/18.
- */
+package generics;
+
 public class MyHolder<T> {
 
     public MyHolder() {
