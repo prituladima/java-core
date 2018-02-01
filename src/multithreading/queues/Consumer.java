@@ -22,7 +22,7 @@ public class Consumer extends Thread{
             try {
                 Thread.sleep(workingTime);
                 System.out.println("consume - " + index);
-                queue.take();
+                System.out.println(queue.poll());
             } catch (InterruptedException e) {
 
             }

@@ -2,16 +2,17 @@ package multithreading.queues;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.DelayQueue;
 import java.util.concurrent.SynchronousQueue;
 
 public class QueuesRunner {
 
     public static void main(String[] args) throws InterruptedException{
 
-        BlockingQueue queue = new ArrayBlockingQueue(1_000_000, true);
+        BlockingQueue queue = new DelayQueue();
 
-        Producer producer = new Producer(0L, queue, 1_000_000);
-        Consumer consumer = new Consumer(1L, queue, Integer.MAX_VALUE);
+        Producer producer = new Producer(1000L, queue, Integer.MAX_VALUE);
+        Consumer consumer = new Consumer(1500L, queue, Integer.MAX_VALUE);
 
         producer.start();
         consumer.start();

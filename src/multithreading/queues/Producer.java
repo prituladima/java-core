@@ -23,7 +23,7 @@ public class Producer extends Thread{
             try {
                 Thread.sleep(workingTime);
                 System.out.println("produce - " + index);
-                queue.offer(new Random().nextInt(), 1L, TimeUnit.SECONDS);
+                System.out.println(queue.offer(new Random().nextInt()));
             } catch (InterruptedException e) {
 
             }
