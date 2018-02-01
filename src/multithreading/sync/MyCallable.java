@@ -1,12 +1,13 @@
-package multithreading;
+package multithreading.sync;
 
 public class MyCallable implements Runnable {
 
+    public static final int AMOUNT = 1_000_000_00;
     int[] data;
 
     public MyCallable(boolean isMinus) {
-        this.data = new int[1000000];
-        for(int i = 0; i<1000000; i++){
+        this.data = new int[AMOUNT];
+        for (int i = 0; i < AMOUNT; i++) {
             data[i] = i * (isMinus ? -1 : 1);
         }
     }
@@ -15,7 +16,7 @@ public class MyCallable implements Runnable {
     public void run() {
         System.out.println("thread = " + Thread.currentThread().getName());
         for (int i : data) {
-            synchronized (Monitor.class){
+            synchronized (Monitor.class) {
                 Monitor.sum += i;
             }
         }
