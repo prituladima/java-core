@@ -65,7 +65,7 @@ public class Main {
         System.out.println("Test 4. ");
         MyHolder<? super Number> var = new MyHolder<>(new Object());
         var.setElement(1);
-//        Number number = var.getElement();error
+//        Number number = var.getElement();//error
         System.out.println("var = " + var);
         System.out.println("var class = " + var.getClass().getSimpleName());
         System.out.println("element class = " + var.getElement().getClass().getSimpleName());
