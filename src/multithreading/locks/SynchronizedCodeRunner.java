@@ -5,19 +5,18 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-public class LockRunner {
+public class SynchronizedCodeRunner {
 
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         IntStream.range(0, 10000)
-                .forEach(i -> executor.submit(LockRunner::increment));
+                .forEach(i -> executor.submit(SynchronizedCodeRunner::increment));
 
         stop(executor);
 
         System.out.println(count);  // 9965
-
 
     }
 
@@ -31,11 +30,9 @@ public class LockRunner {
         try {
             executor.shutdown();
             executor.awaitTermination(60, TimeUnit.SECONDS);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             System.err.println("termination interrupted");
-        }
-        finally {
+        } finally {
             if (!executor.isTerminated()) {
                 System.err.println("killing non-finished tasks");
             }
