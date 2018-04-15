@@ -4,13 +4,13 @@ import java.util.EnumSet;
 import java.util.Objects;
 import java.util.Set;
 
-public abstract class Pizza {
+abstract class Pizza {
 
     public enum Topping {HAM, MUSHROOM, ONIONS, PEPPER, SAUSAGE}
 
     final Set<Topping> toppings;
 
-    abstract static class Builder<T extends Builder> {
+    abstract static class Builder<T extends Builder, P extends Pizza> {
 
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
 
@@ -19,13 +19,13 @@ public abstract class Pizza {
             return self();
         }
 
-        abstract Pizza build();
+        protected abstract P build();
 
         protected abstract T self();
 
     }
 
-    Pizza(Builder<?> builder) {
+    protected Pizza(Builder<?, ?> builder) {
         toppings = builder.toppings.clone();
     }
 
